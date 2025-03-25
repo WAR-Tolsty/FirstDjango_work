@@ -26,26 +26,23 @@ def home(request):
     return render(request, "index.html", context)
 
 def about(request):
-    text = f"""
-    Имя: <b>{author["Имя"]}</b><br>
-    Отчество: <b>{author["Отчество"]}</b><br>
-    Фамилия: <b>{author["Фамилия"]}</b><br>
-    телефон: <b>{author["телефон"]}</b><br>
-    email: <b>{author["email"]}</b><br>
+    author = {
+    "name": "Mikhail",
+    "middle_name": "Nikolaevich",
+    "last_name": "Stukaov",
+    "phone": "9169066315",
+    "email": "ya@mstukalov.ru"
+    }
+    return render(request, "about.html", {"author": author})
 
-    """
-    return HttpResponse(text)
+def getitem(request, item_id): 
+    item = next((item for item in items if item['id'] == item_id), None)
 
-def getitem(request, item_id):
-    """ По указаному id возвращаем имя элемента"""
-    for item in items:
-        if item['id'] == item_id:
-            result = f"""
-            <h2> Имя: {item["name"]}<h2>
-            <p> Количество {item['quantity']}</p>
-            <p> <a href="/items"> Назад к списку товаров </a>
-            """
-            return HttpResponse(result)
+    if item is not None:
+        context = {
+            "item": item
+        }
+        return render(request, "item_page.html", context)
     return HttpResponseNotFound(f"Item with id={item_id} not found")
 
 def getitems(request):
