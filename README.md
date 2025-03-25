@@ -8,7 +8,13 @@
 
 3. 'pip install -r requirment.txt'
 
-4. 'python manage.py runserver'
+4. 'python manage.py migrate'
+
+5. 'python manage.py runserver'
+
+## Запуск 'ipython' в контексте прилоений 'django'
+
+python manage.py shell_plus --ipython
 
 ## Дополнительно
 
