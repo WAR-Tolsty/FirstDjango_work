@@ -10,3 +10,15 @@
 
 4. 'python manage.py runserver'
 
+## Дополнительно
+
+1. Полезное ополнение дл шаблонов 'Django'
+
+Добавить в 'settings.json'
+
+"emmet.includeLanguages": {
+    "django-html": "html",
+}
+"files.associations": {
+    "*.html" "django-html
+}
