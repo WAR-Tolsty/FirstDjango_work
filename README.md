@@ -16,9 +16,13 @@
 
 python manage.py shell_plus --ipython
 
-## Выгрузить данные из БДД
+## Выгрузить данные из БД
 
 python manage.py dumpdata MainApp --indent 4 > ./fixtures/items.json
+
+## Выгрузка только одного класса
+
+python manage.py dumpdata MainApp.item --indent 4 > ./fixtures/only_items.json
 
 ## Загрузить данные в БД
 
